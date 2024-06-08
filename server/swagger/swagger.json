@@ -1,0 +1,76 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "Buzz Up API",
+        "description": "API for Buzz Up",
+        "version": "0.0.1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000",
+            "description": "Local server"
+        }
+    ],
+    "components": {
+        "securitySchemas": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    },
+
+    "security": [
+        {
+            "bearerAuth": []
+        }
+    ],
+
+    "paths": {
+        "/api/v1/createbuzz": {
+            "post": {
+                "description": "Create a new buzz",
+                "tags": ["Buzz"],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "query",
+                        "description": "User Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "buzz": {
+                                        "type": "string"
+                                    },
+                                    "userId": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Buzz created successfully"
+                    }
+                }
+            }
+        }
+    }
+}

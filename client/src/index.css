@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .pattern
+  {
+    background: radial-gradient(circle at top left,transparent 9%, #faa214 10% ,#faa214 15% , transparent 16%) , radial-gradient(circle at bottom left,transparent 9%, #faa214 10% ,#faa214 15% , transparent 16%), radial-gradient(circle at top right ,transparent 9%, #faa214 10% ,#faa214 15% , transparent 16%) , radial-gradient(circle at bottom right,transparent 9%, #faa214 10% ,#faa214 15% , transparent 16%),radial-gradient(circle, transparent 25%, #faad14  26%),linear-gradient(0deg, transparent 44%, #faa214 45%, #faa214 55%, transparent 56%), linear-gradient(90deg, transparent 44%, #faa214 45%, #faa214 55%, transparent 56%);
+
+    background-size: 2em 2em;
+    background-color: #faad14;
+    opacity: 1;
+  }
+  .pattern-dark
+  {
+    background: linear-gradient(45deg , #1a1a18 10%,transparent 11%, transparent 89% , #1a1a18 90%),linear-gradient(135deg , #1a1a18 10%,transparent 11%, transparent 89% , #1a1a18 90%),radial-gradient(circle, transparent 25%, #181715  26%),linear-gradient(0deg, transparent 44%, #1a1a18 45%, #1a1a18 55%, transparent 56%), linear-gradient(90deg, transparent 44%, #1a1a18 45%, #1a1a18 55%, transparent 56%);
+    background-size: 2em 2em;
+    background-color: #181715;
+    opacity: 1
+  }
+  .mid-part
+  {
+    @apply w-full sm:w-[35rem];
+  }
+  .material-icons
+  {
+    @apply select-none;
+  }
+  *
+  {
+    /* outline: #1446fa4c solid; */
+    box-sizing: border-box;
+  }
+  html {
+    @apply text-light;
+    font-family: 'Inter', sans-serif;
+    @apply pattern-dark;
+  }
+  .card
+  {
+    @apply shadow-md;
+    @apply bg-dark;
+    @apply p-4;
+    @apply md:p-6;
+    @apply m-1;
+    @apply border-2;
+    @apply border-light/10;
+    @apply hover:border-light/20;
+    @apply transition-colors;
+    @apply duration-500;
+    @apply rounded-lg;
+  }
+  .shimmer:not(.card)
+  {
+    @apply animate-pulse;
+  }
+  .shimmer.card
+  {
+    position: relative;
+  }
+  .shimmer.card::after
+  {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left:0;
+    @apply rounded-lg;
+    background: linear-gradient(270deg, #00000000, #ffffff1f, #00000000);
+    background-size: 600% 600%;
+
+    -webkit-animation: ShimmerAnim 2s ease infinite;
+    -moz-animation: ShimmerAnim 2s ease infinite;
+    animation: ShimmerAnim 2s ease infinite;
+  }
+
+  @-webkit-keyframes ShimmerAnim
+  {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+  @-moz-keyframes ShimmerAnim
+  {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+  @keyframes ShimmerAnim 
+  {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+.loader {
+  position: relative;
+  font-size: 16px;
+  width: 5.5em;
+  height: 5.5em;
+}
+
+.loader:before {
+  content: '';
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(45deg);
+  height: 100%;
+  width: 4px;
+  background: #fff;
+  left: 50%;
+  top: 50%;
+}
+
+.loader:after {
+  content: '';
+  position: absolute;
+  left: 0.2em;
+  bottom: 0.18em;
+  width: 1em;
+  height: 1em;
+  background-color: orange;
+  border-radius: 15%;
+  animation: rollingRock 2.5s cubic-bezier(.79, 0, .47, .97) infinite;
+}
+
+@keyframes rollingRock {
+  0% {
+    transform: translate(0, -1em) rotate(-45deg)
+  }
+
+  5% {
+    transform: translate(0, -1em) rotate(-50deg)
+  }
+
+  20% {
+    transform: translate(1em, -2em) rotate(47deg)
+  }
+
+  25% {
+    transform: translate(1em, -2em) rotate(45deg)
+  }
+
+  30% {
+    transform: translate(1em, -2em) rotate(40deg)
+  }
+
+  45% {
+    transform: translate(2em, -3em) rotate(137deg)
+  }
+
+  50% {
+    transform: translate(2em, -3em) rotate(135deg)
+  }
+
+  55% {
+    transform: translate(2em, -3em) rotate(130deg)
+  }
+
+  70% {
+    transform: translate(3em, -4em) rotate(217deg)
+  }
+
+  75% {
+    transform: translate(3em, -4em) rotate(220deg)
+  }
+
+  100% {
+    transform: translate(0, -1em) rotate(-225deg)
+  }
+}
+      
+    
+}
+::-webkit-scrollbar {
+  width: 2px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb {
+  @apply rounded-full;
+  @apply bg-accent;
+}
